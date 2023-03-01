@@ -26,9 +26,12 @@ class ItemFactory
     {
         return match(true) {
             strpos($item->name, self::AGED_BRIE_ITEM) !== false => new AgedBrieItem(),
+            // How about if we have another item with name: Aged Brie Custom ?
             strpos($item->name, self::BACKSTAGE_ITEM) !== false => new BackstagePassItem(),
             strpos($item->name, self::SULFURAS_ITEM) !== false => new SulfurasItem(),
             strpos($item->name, self::CONJURED_ITEM) !== false => new ConjuredItem(),
+            
+            // How about if business logic require more Items ? We against Open / Close in Solid if we add more cases in here
             default => new NormalItem()
         };
     }
